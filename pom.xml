@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- pom版本标签，指明pom模型版本 -->
     <modelVersion>4.0.0</modelVersion>
+    <!-- pom父项目标签 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- Spring Boot 的版本-->
         <version>2.5.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
+    <!-- 公司或组织的ID -->
     <groupId>com.cxhit</groupId>
-    <artifactId>SpringBoot-Demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>SpringBoot-Demo</name>
+    <!-- 项目ID，本项目的唯一标识-->
+    <artifactId>springboot-study</artifactId>
+    <!-- 项目版本 -->
+    <version>1.0.0</version>
+    <!-- 打包方式修改为pom -->
+    <packaging>pom</packaging>
+    <!-- 项目名称 -->
+    <name>SpringBoot-Study</name>
+    <!-- 项目描述 -->
     <description>SpringBoot-Demo</description>
+
+    <!-- 加入各个子模块 -->
+    <modules>
+        <module>study-redis</module>
+
+        <!-- 如果还有其他，继续增加 -->
+        <!-- <module>module-name</module>-->
+    </modules>
+
+    <!-- pom常量，其他位置可以直接引用 -->
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <!-- Spring Boot web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 如果不设置version,就会父级pom中dependencyManagement找，继承父级的 version 。如果设置了就用自己设置的版本 -->
+            <!-- <version></version> -->
         </dependency>
 
         <dependency>
