@@ -27,6 +27,8 @@
     <!-- 加入各个子模块 -->
     <modules>
         <module>study-redis</module>
+        <module>study-captcha</module>
+        <module>study-mybatis-plus</module>
 
         <!-- 如果还有其他，继续增加 -->
         <!-- <module>module-name</module>-->
