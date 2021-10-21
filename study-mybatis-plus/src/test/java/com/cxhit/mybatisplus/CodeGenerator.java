@@ -53,7 +53,9 @@ public class CodeGenerator {
         AutoGenerator mpg = new AutoGenerator();
 
         // 项目根目录
-        String projectPath = System.getProperty("user.dir");
+        // 这里注意，追加的是本项目的模块目录。如果是单项目，此行注释掉，更换成下一行
+        String projectPath = System.getProperty("user.dir") + "/study-mybatis-plus";
+//        String projectPath = System.getProperty("user.dir");
 
         // 1. 全局配置
         GlobalConfig globalConfig = new GlobalConfig();
@@ -139,7 +141,7 @@ public class CodeGenerator {
         strategyConfig
                 .setNaming(NamingStrategy.underline_to_camel)           // 数据库表映射到实体的命名策略:下划线转驼峰
                 .setColumnNaming(NamingStrategy.underline_to_camel)     // 数据库表字段映射到实体的命名策略:下划线转驼峰
-                .setEntityLombokModel(true)                             // 实体是否为lombok模型（默认 false）
+                .setEntityLombokModel(false)                             // 实体是否为lombok模型（默认 false）
                 // .setSuperEntityClass("com.zxdmy.wx.mp.wechat.common.BaseEntity")                 // 设置实体类的父类（如果启用，实体类会增加BaseEntity的继承）
                 // .setSuperControllerClass("com.zxdmy.wx.mp.wechat.common.BaseController")         // 设置控制类的父类（如果启用，控制类会增加BaseController的继承）
                 // 提示输入生成的表名
