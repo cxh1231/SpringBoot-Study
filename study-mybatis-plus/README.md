@@ -2,8 +2,6 @@
 
 [TOC]
 
-
-
 ## 1. MyBatis-Plus产生的原因
 
 **一个技术的出现，必然有它的道理。**
@@ -238,11 +236,18 @@ public class MybatisPlusConfig {
     <artifactId>mybatis-plus-generator</artifactId>
     <version>3.4.1</version>
 </dependency>
+<!-- freemarker，作为代码生成器mapper文件的模板引擎使用（当然也可以使用velocity，二选一即可） -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-freemarker</artifactId>
+</dependency>
 ```
 
 >   获取`mybatis-plus-boot-starter` 依赖的其他版本，请访问：[https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator](https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator)
 >
 >   注：如果使用的`MP代码生成器`版本大于 `3.4.1` ，请前往MP官网查看其最新教程（官网教程更新于2021/10/20）。
+>
+>   其中增加的`freemarker`，是代码生成器生成Mapper.xml文件的模板引擎使用。
 
 ### 5.2 完善并修改生成器
 
@@ -424,6 +429,8 @@ public class CodeGenerator {
 在执行`代码生成器`之前，我们在`测试数据库`中创建了一个名为`sys_user`的表单，其内容如下。
 
 ![图：测试数据库表](README.assets/image-20211021200615890.png)
+
+>   此数据库的SQL脚本，在文末的源代码中。
 
 然后点击下图所示的`运行`按钮，即可执行代码生成器。
 
@@ -656,7 +663,4 @@ void pageTest() {
 
 更多复杂的查询，需要使用`QueryWrapper`，其中部分示例，放在本文的项目源码中了，这里就不再赘述。
 
-## 7. 本文源码下载
-
-00
 
