@@ -40,12 +40,12 @@ public class MyCaptchaUtil {
                 resultString.append(b).append("-").append(a).append("=?@").append(result);
             }
         }
-        // *
+        // 运算符：*
         else if (2 == op) {
             result = a * b;
             resultString.append(a).append("*").append(b).append("=?@").append(result);
         }
-        // /
+        // 运算符：/
         else if (3 == op) {
             if (a != 0 && b % a == 0) {
                 result = b / a;
@@ -57,7 +57,7 @@ public class MyCaptchaUtil {
                 return mathTextCreator(a, b);
             }
         }
-        // +
+        // 运算符：+
         else {
             result = b + a;
             resultString.append(a).append("+").append(b).append("=?@").append(result);
