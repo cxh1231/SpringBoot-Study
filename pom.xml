@@ -29,6 +29,7 @@
         <module>study-redis</module>
         <module>study-captcha</module>
         <module>study-mybatis-plus</module>
+        <module>study-mybatis-plus-fast-generator</module>
 
         <!-- 如果还有其他，继续增加 -->
         <!-- <module>module-name</module>-->
