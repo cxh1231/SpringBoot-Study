@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 /**
  * <p>
- * MP 代码生成器
+ * MP 代码生成器，最高版本：3.4.1。更高的版本请使用 https://github.com/cxh1231/SpringBoot-Study/tree/master/study-mybatis-plus-fast-generator
  * </p>
  *
  * @author 拾年之璐

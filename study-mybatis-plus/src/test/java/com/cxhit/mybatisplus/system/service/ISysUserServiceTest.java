@@ -138,6 +138,7 @@ class ISysUserServiceTest {
 
     /**
      * 复杂查询
+     * 更多内容，请访问官网：https://mp.baomidou.com/guide/wrapper.html
      */
     void selectDIY(Boolean condition) {
         QueryWrapper<SysUser> wrapper = new QueryWrapper<>();

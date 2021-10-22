@@ -16,9 +16,7 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import java.util.*;
 
 /**
- * <p>
- * MP 代码生成器，多模块
- * </p>
+ * MP 代码生成器，多模块，最高版本：3.4.1。更高的版本请使用 https://github.com/cxh1231/SpringBoot-Study/tree/master/study-mybatis-plus-fast-generator
  *
  * @author 拾年之璐
  * @since 2021-09-01 0001 18:51
