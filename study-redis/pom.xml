@@ -16,6 +16,7 @@
 
     <!-- 添加依赖 -->
     <dependencies>
+        <!-- 此处的spring-boot-starter-web 依赖，在父模块中，请知晓 -->
 
         <!-- Redis -->
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
