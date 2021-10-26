@@ -72,7 +72,7 @@
 
 在`测试文件夹`下，新建一个名为 `FastCodeGenerator` 的 `java class` 文件，如下图所示。
 
-![image-20211026205528038](README.assets/image-20211026205528038.png)
+![图：新建测试类](README.assets/image-20211026205528038.png)
 
 然后在项目 `FastCodeGenerator` 类中，写入如下代码。
 
@@ -428,27 +428,27 @@ public class FastCodeGenerator {
 
 ### 2.3 通用信息配置
 
-在代码最开始，配置一下数据库、父包名等通用信息。如下图所示。
+在代码最开始，配置一下`数据库`、`父包名`等通用信息。如下图所示。
 
-![image-20211026210013690](README.assets/image-20211026210013690.png)
+![图：配置通用信息](README.assets/image-20211026210013690.png)
 
 ### 2.3 单模块使用示例
 
 1、在`main`函数中，启用`simpleGenerator()` 方法，如下图所示。
 
-![image-20211026210433259](README.assets/image-20211026210433259.png)
+![图：启用简单示例](README.assets/image-20211026210433259.png)
 
 2、根据`注释`，结合自己项目实际，修改 `simpleGenerator()` 方法，如下图所示。
 
-![image-20211026210540376](README.assets/image-20211026210540376.png)
+![图：修改生成器](README.assets/image-20211026210540376.png)
 
 3、执行`main`函数，在`控制台`输入相关信息，然后`回车`键执行，如下图所示。
 
-![image-20211026210626226](README.assets/image-20211026210626226.png)
+![图：交互式生成示例](README.assets/image-20211026210626226.png)
 
 4、即可看到生成的文件，如下图所示。
 
-![](README.assets/image-20211026203247908.png)
+![图：单模块生成示例](README.assets/image-20211026203247908.png)
 
 以上就是单模块的使用示例。
 
@@ -456,17 +456,17 @@ public class FastCodeGenerator {
 
 1、在`main`函数中，启用`completeGenerator()` 方法，如下图所示。
 
-![image-20211026210741540](README.assets/image-20211026210741540.png)
+![图：启用多模块示例](README.assets/image-20211026210741540.png)
 
 2、根据注释，以及项目实际情况，修改各个文件保存的模块、路径名，如下图所示。
 
-![image-20211026210845699](README.assets/image-20211026210845699.png)
+![图：配置代码生成器](README.assets/image-20211026210845699.png)
 
 3、执行`main`函数，在`控制台`输入相关信息，然后`回车`键执行。
 
 4、即可看到生成的代码，如下图所示。
 
-![](README.assets/image-20211026201532072.png)
+![图：多模块生成结果](README.assets/image-20211026201532072.png)
 
 >   注：上图示例仅在模拟环境下，测试生成路径、包名的准确性，并非真实项目截图。
 >

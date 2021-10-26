@@ -47,9 +47,9 @@ public class FastCodeGenerator {
      */
     public static void main(String[] args) {
         // 简单示例，适用于单模块项目
-//        simpleGenerator();
+        simpleGenerator();
         // 完整示例，适用于多模块项目
-        completeGenerator();
+//        completeGenerator();
     }
 
     /**
