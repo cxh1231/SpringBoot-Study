@@ -42,16 +42,14 @@ public class FastCodeGenerator {
 //    private static final String parentPackageName = "com.cxhit.mybatisplus.generator";
     private static final String parentPackageName = "com.yourdomain.projectname";
 
-    // 多模块下路径配置
-
     /**
      * 执行此处
      */
     public static void main(String[] args) {
         // 简单示例，适用于单模块项目
-        simpleGenerator();
+//        simpleGenerator();
         // 完整示例，适用于多模块项目
-//        completeGenerator();
+        completeGenerator();
     }
 
     /**
