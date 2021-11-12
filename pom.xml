@@ -30,6 +30,8 @@
         <module>study-captcha</module>
         <module>study-mybatis-plus</module>
         <module>study-mybatis-plus-fast-generator</module>
+        <module>study-oss-qiniu</module>
+        <module>study-swagger3</module>
 
         <!-- 如果还有其他，继续增加 -->
         <!-- <module>module-name</module>-->
