@@ -28,6 +28,7 @@
             <version>3.4.3.2</version>
         </dependency>
 
+        <!-- MP的代码生成器依赖 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
