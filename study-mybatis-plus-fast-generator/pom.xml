@@ -6,7 +6,7 @@
         <groupId>com.cxhit</groupId>
         <artifactId>springboot-study</artifactId>
         <version>1.0.0</version>
-        <relativePath/>
+<!--        <relativePath/>-->
     </parent>
 
     <artifactId>study-mybatis-plus-fast-generator</artifactId>
