@@ -1,0 +1,28 @@
+# 项目服务配置
+server:
+  port: 9008  # 端口号
+  servlet:
+    context-path: / #项目访问路径
+
+# OpenApi 接口文档信息配置
+springdoc:
+  api-docs:
+    # 开启或关闭swagger，关闭后，无法访问和查看接口文档
+    enabled: true
+  swagger-ui:
+    # 打开swagger的地址。当前：http://localhost:9008/swagger
+    path: /swagger
+    csrf:
+      enabled: true # 开启跨域访问
+  # 包扫描路径，多个package用英文逗号分隔。如果配置了分组，可以不用设置此项。
+  # packages-to-scan: com.cxhit.swagger3.system.controller,com.cxhit.swagger3.system.entity
+  # 分组配置，
+  group-configs:
+    # 分组名
+    - group: client
+      # 匹配方式1：按路径匹配
+      pathsToMatch: /client/**
+    # 分组名
+    - group: system
+      # 匹配方式2：按包路径匹配；多个package用英文逗号分隔
+      packagesToScan: com.cxhit.swagger3.system
