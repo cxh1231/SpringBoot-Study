@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>前端文件上传测试</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+
+    <!-- 引用本地的静态资源 -->
+    <link rel="stylesheet" type="text/css" href="css/iview.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue-clipboard.min.js"></script>
+    <script type="text/javascript" src="js/iview.min.js"></script>
+    <script type="text/javascript" src="js/axios.min.js"></script>
+    <script type="text/javascript" src="js/qiniu.min.js"></script>
+</head>
+
+<body>
+<div id="app" i-col="24">
+    <p class="title">文件前端上传测试1：默认上传　<a href="/">回首页</a></p>
+
+    <div class="upload-borad">
+        <div class="demo-spin-container" v-show="loading">
+            <Spin fix></Spin>
+        </div>
+
+        <Upload
+                class="Upload"
+                multiple="true"
+                type="drag"
+                :show-upload-list="showUploadList"
+                :before-upload="beforeUpload"
+                :on-progress="onProgress"
+                :on-success="onSuccess"
+                :on-error="onError"
+                :data="{token: token}"
+                action="https://upload.qiniup.com">
+            <!--
+                此处的上传链接，根据空间（bucket）的地域修改
+                华　东：http(s)://upload.qiniup.com
+                华　北：http(s)://upload-z1.qiniup.com
+                华　南：http(s)://upload-z2.qiniup.com
+                北　美：http(s)://upload-na0.qiniup.com
+                东南亚：http(s)://upload-as0.qiniup.com
+                参　考：https://developer.qiniu.com/kodo/1671/region-endpoint-fq  -->
+
+            <div style="padding: 20px 0">
+                <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
+                <p>前端上传测试：点击选择文件或者将文件拖入此处</p>
+            </div>
+        </Upload>
+
+        <p style="text-align: left">说明：此演示示例，通过后端生成上传的Token，并通过七牛云官方的上传API，使用ajax的方式，直接上传至相应的七牛云存储服务器。<br>
+            其中上传后的文件名为文件的hash值。如果多次上传相同文件，则hash值相同，会覆盖旧文件（或者说没有重复上传）</p>
+
+        <ul class="ivu-upload-list hoverbox" style="vertical-align: middle">
+            <li class="ivu-upload-list-file ivu-upload-list-file-finish" v-for="item in arry">
+                <span>
+                    <i class="ivu-icon ivu-icon-ios-image"></i>
+                    <a v-bind:href="item" target="_blank">
+                        　{{item}}　
+                        <img v-bind:src="item" class="preview" alt="">
+                    </a>
+                </span>
+
+                <span @click="copyURL(item)">　复制链接　</span>
+                <span @click="copyMdURL('!['+item+']('+item+')')">　复制Markdown格式　</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            visible: false,
+            domain: '',
+            protocol: '',
+            token: '',
+            loading: true,
+            showUploadList: false,
+            arry: []
+
+        },
+        mounted() {
+            this.init()
+        },
+        methods: {
+            // 加载页面初始化
+            init: function () {
+                let that = this;
+                // 前端默认上传获取Token的接口，采用【GET】方式
+                axios.get('/qiniu/createUploadToken').then(function (res) {
+                    that.token = res.data.token;
+                    that.domain = res.data.domain;
+                    that.protocol = res.data.protocol;
+                    that.$Notice.success({
+                        title: '初始化成功',
+                        desc: ''
+                    });
+                    that.loading = false
+                }).catch(function (error) {
+                    console.log(error);
+                })
+            },
+            show: function () {
+                this.visible = true;
+            },
+            beforeUpload: function (file) {
+                console.log('file', file);
+            },
+            onProgress: function (event, file, fileList) {
+                console.log(event, file, fileList)
+                console.log(this.token)
+            },
+            onSuccess: function (response, file, fileList) {
+                console.log('上传成功', response, file, fileList)
+                this.$Notice.success({
+                    title: '上传成功',
+                    desc: ''
+                });
+                this.arry.push(this.protocol + "://" + this.domain + '/' + response.key)
+            },
+            onError: function (error, file, fileList) {
+                console.log('上传失败', error, file, fileList)
+                this.$Notice.error({
+                    title: '上传失败',
+                    desc: error
+                });
+            },
+            copyURL: function (e) {
+                this.$copyText(e);
+                this.$Notice.success({
+                    title: '链接复制成功！',
+                    desc: e.substr(0, 30) + '...',
+                });
+            },
+            copyMdURL: function (e) {
+                this.$copyText(e);
+                this.$Notice.success({
+                    title: 'Markdown链接复制成功！',
+                    desc: e.substr(0, 30) + '...',
+                });
+            }
+        }
+    })
+</script>
+</body>
+</html>

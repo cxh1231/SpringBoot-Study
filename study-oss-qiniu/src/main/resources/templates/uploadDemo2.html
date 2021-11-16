@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>前端上传测试2：改名上传</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+
+    <!-- 引用本地的静态资源 -->
+    <link rel="stylesheet" type="text/css" href="css/iview.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue-clipboard.min.js"></script>
+    <script type="text/javascript" src="js/iview.min.js"></script>
+    <script type="text/javascript" src="js/axios.min.js"></script>
+    <!--    <script type="text/javascript" src="js/qiniu.min.js"></script>-->
+</head>
+
+<body>.
+<div id="app" i-col="24">
+    <p class="title">文件前端上传测试2：改名上传　<a href="/">回首页</a></p>
+
+    <div class="upload-borad">
+        <div class="demo-spin-container" v-show="loading">
+            <Spin fix></Spin>
+        </div>
+
+        <Upload class="Upload"
+                multiple="true"
+                type="drag"
+                :show-upload-list="showUploadList"
+                :before-upload="beforeUpload">
+            <div style="padding: 20px 0">
+                <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
+                <p>点击选择文件或将文件拖入此处（支持多文件上传）</p>
+            </div>
+        </Upload>
+
+        <p style="text-align: left">说明：此演示示例，将前端的key（文件存储路径+文件名）发送至后端，后端生成上传的Token，并返回给前端。<br>
+            前端通过七牛云官方的上传API，使用ajax的方式，上传至相应的七牛云存储服务器。<br>
+            其中上传的文件名为生成Token用到的key，并且该key值（文件路径+文件名组成的字符串）需要在前端上传给七牛云的API。<br>
+            如果多次上传同名文件（路径和文件名均相同），则会覆盖旧文件。</p>
+
+        <ul class="ivu-upload-list hoverbox" style="vertical-align: middle">
+            <li class="ivu-upload-list-file ivu-upload-list-file-finish" v-for="item in arry">
+                <span>
+                    <i class="ivu-icon ivu-icon-ios-image"></i>
+                    <a v-bind:href="item" target="_blank">
+                        　{{item}}　
+                        <img v-bind:src="item" class="preview">
+                    </a>
+                </span>
+
+                <span @click="copyURL(item)">　复制链接　</span>
+                <span @click="copyMdURL('!['+item+']('+item+')')">　复制Markdown格式　</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            visible: false,
+            domain: '',
+            protocol: '',
+            token: '',
+            loading: false,
+            showUploadList: false,
+            arry: []
+        },
+        methods: {
+            beforeUpload: function (file) {
+                console.log("上传文件")
+                console.log('file', file);
+                // 获取原始文件的后缀
+                const oldFileName = file.name;
+                // 截取后缀
+                const ext = oldFileName.substr(oldFileName.lastIndexOf(".") + 1);
+                // 生成新的文件名，以时间的秒数作为默认文件名
+                const timeStamp = new Date() - 0;
+                const newFileName = "2021/11/" + timeStamp + '.' + ext
+                // 本地生成原文件的副本，上传此副本
+                const copyFile = new File([file], newFileName)
+                console.log('copyFile', copyFile);
+                let that = this;
+                let data = new FormData();
+                data.append('fileName', copyFile.name);
+                // 执行请求：获取当前文件的Token信息。注意：这里使用POST方式获取！
+                axios({
+                    method: 'post',
+                    async: false, // false：同步请求，true：异步请求
+                    url: '/qiniu/createUploadToken',
+                    data: data,
+                    type: JSON
+                }).then(function (res) {
+                    console.log(res)
+                    // that.token = res.data.token;
+                    that.domain = res.data.domain;
+                    that.protocol = res.data.protocol;
+                    that.$Notice.success({
+                        title: '获取Token成功！',
+                        desc: ''
+                    });
+
+                    // 请求提交的参数构造，这三个参数缺一不可！
+                    let formData = new FormData();
+                    formData.append('token', res.data.token);
+                    formData.append('file', copyFile);
+                    formData.append('key', copyFile.name);
+                    // 执行请求：上传文件
+                    axios({
+                        method: 'post',
+                        async: false, // fasle表示同步请求，true表示异步请求
+                        url: 'https://upload.qiniup.com',
+                        data: formData,
+                        // 这里必须使用multipart/form-data形式！
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    }).then(function (res) {
+                        that.$Notice.success({
+                            title: '上传成功！',
+                            desc: ''
+                        });
+                        that.arry.push(that.protocol + "://" + that.domain + '/' + copyFile.name)
+                        that.loading = false
+                    }).catch(function (error) {
+                        console.log(error);
+                    })
+
+                }).catch(function (error) {
+                    console.log(error);
+                })
+            },
+            show: function () {
+                this.visible = true;
+            },
+            copyURL: function (e) {
+                this.$copyText(e);
+                this.$Notice.success({
+                    title: '链接复制成功！',
+                    desc: e.substr(0, 30) + '...',
+                });
+            },
+            copyMdURL: function (e) {
+                this.$copyText(e);
+                this.$Notice.success({
+                    title: 'Markdown链接复制成功！',
+                    desc: e.substr(0, 30) + '...',
+                });
+            }
+        }
+    })
+</script>
+</body>
+</html>

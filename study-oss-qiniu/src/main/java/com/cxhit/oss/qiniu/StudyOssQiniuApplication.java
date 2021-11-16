@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 项目启动入口
- *
+ * 主页：http://localhost:9010
  * @author 拾年之璐
  * @since 2021/11/12 21:36
  */
