@@ -44,13 +44,13 @@
 
 **1、clone项目至本地**
 
-使用如下命令克隆GitHub仓库只本机：
++ 使用如下命令克隆GitHub仓库只本机：
 
 ```
 git clone https://github.com/cxh1231/SpringBoot-Study.git
 ```
 
-或使用国内仓库：
++ 或使用国内仓库：
 
 ```
 git clone https://gitee.com/cxh1231/SpringBoot-Study.git
@@ -58,14 +58,14 @@ git clone https://gitee.com/cxh1231/SpringBoot-Study.git
 
 **2、使用IDEA导入项目**
 
-在IDEA主页面，访问 File --> Open，选中项目父目录SpringBoot-Study文件夹，点击OK
++ 在IDEA主页面，访问 File >> Open，选中项目父目录SpringBoot-Study文件夹，点击OK。
 
 **3、更新Maven依赖**
 
-**侧栏**打开**Maven**窗口，点击**刷新**按钮（Reload All Maven Projects）更新依赖
++ **侧栏**打开**Maven**窗口，点击**刷新**按钮（Reload All Maven Projects）更新依赖。
 
 **4、运行子项目**
 
-对于有Web演示的实例，此模块（组件）有一个可独立运行的`XxxApplication`，右击此方法，选择 `Run XxxApplication` 即可运行。
++ 对于有Web演示的实例，此模块（组件）有一个可独立运行的`XxxApplication`，右击此方法，选择 `Run XxxApplication` 即可运行。
 
-对于没有Web演示示例的模块，其详细使用方法均集成在**测试代码**中，具体可见相应模块的**Test包**下的各个**测试类**。每个测试方法均有详细的注释说明。
++ 对于没有Web演示示例的模块，其详细使用方法均集成在**测试代码**中，具体可见相应模块的**Test包**下的各个**测试类**。每个测试方法均有详细的注释说明。
