@@ -1,0 +1,13 @@
+# 项目服务配置
+server:
+  port: 9010  # 端口号
+  servlet:
+    context-path: / #项目访问路径
+
+
+spring:
+  servlet:
+    multipart:
+      # Spring 2.0以后，默认显示上传文件最大值为1MB
+      # 此处修改为20MB
+      max-file-size: 20MB
