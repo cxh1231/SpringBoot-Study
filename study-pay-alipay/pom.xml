@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot-study</artifactId>
+        <groupId>com.cxhit</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>study-pay-alipay</artifactId>
+    <version>1.0.0</version>
+    <name>study-pay-alipay</name>
+    <description>study-pay-alipay</description>
+
+    <properties>
+
+    </properties>
+
+    <dependencies>
+        <!-- 支付宝支付的核心依赖，当前官网有【通用版】和【Easy版】，此Demo使用Easy版。-->
+        <!-- https://search.maven.org/artifact/com.alipay.sdk/alipay-easysdk -->
+        <!-- 另有：https://search.maven.org/artifact/com.alipay.sdk/alipay-sdk-java -->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-easysdk</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+        <!-- thymeleaf 模板，用来显示页面  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!-- Hutool工具箱，主要用来生成JSON数据等信息 -->
+        <!-- https://search.maven.org/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.16</version>
+        </dependency>
+
+    </dependencies>
+</project>
