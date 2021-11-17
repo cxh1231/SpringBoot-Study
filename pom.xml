@@ -26,11 +26,15 @@
 
     <!-- 加入各个子模块 -->
     <modules>
-        <module>study-redis</module>
+
         <module>study-captcha</module>
         <module>study-mybatis-plus</module>
         <module>study-mybatis-plus-fast-generator</module>
+        <module>study-oss-aliyun</module>
         <module>study-oss-qiniu</module>
+        <module>study-pay-alipay</module>
+        <module>study-pay-wechat</module>
+        <module>study-redis</module>
         <module>study-swagger3</module>
 
         <!-- 如果还有其他，继续增加 -->
