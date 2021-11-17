@@ -27,18 +27,18 @@
 
 > ✅：已集成并实现Demo的组件；🎉：计划中，即将实现Demo的组件。
 
-| 状态 | 模块名                      | 集成组件简介                                                       |
+| 🚩 | 模块名                      | 集成组件简介                                                       |
 |-----|--------------------------- |-----------------------------------------------------------------|
-| ✅  | [Kaptcha](./study-captcha) | 谷歌验证码组件。主要实现生成文本、数学算式等验证码图片。                 |
-| ✅  | [MyBatis Plus](./study-mybatis-plus) | 基于MyBatis的增强工具。主要集成MP并实现旧版代码生成器。 |
-| ✅  | [MyBatis Plus Fast Generator](./study-mybatis-plus-fast-generator) | 基于MyBatis Plus的新版代码生成器，版本>=3.5.1。 |
-| 🎉  | OSS Aliyun | 阿里云对象存储服务。主要实现阿里云OSS的文件上传与下载 |
-| ✅  | [OSS Qiniu](./study-oss-qiniu) | 七牛云对象存储服务。主要实现七牛云OSS的文件上传与下载。 |
-| 🎉  | OSS Tencent | 腾讯云对象存储服务。主要实现腾讯云OSS的文件上传与下载。|
-| 🎉  | Pay Alipay | 支付宝支付组件。主要实现支付宝的当面付、电脑支付、网站支付等常用支付服务。 |
-| 🎉  | Pay Wechat | 微信支付组件。主要实现微信的JSAPI支付、Native支付等常用支付服务。 |
-| ✅  | [Redis](./study-redis) | key-value型数据库。主要实现使用Redis进行数据缓存。 |
-| ✅  | [Swagger3](./study-swagger3) | 简化API开发的工具。主要实现基于SpringDoc的Swagger3组件。 |
+| ✅ | [Kaptcha](./study-captcha) | 谷歌验证码组件。主要实现生成文本、数学算式等验证码图片。                 |
+| ✅ | [MyBatis Plus](./study-mybatis-plus) | 基于MyBatis的增强工具。主要集成MP并实现旧版代码生成器。 |
+| ✅ | [MyBatis Plus Fast Generator](./study-mybatis-plus-fast-generator) | 基于MyBatis Plus的新版代码生成器，版本>=3.5.1。 |
+| 🎉 | OSS Aliyun | 阿里云对象存储服务。主要实现阿里云OSS的文件上传与下载 |
+| ✅ | [OSS Qiniu](./study-oss-qiniu) | 七牛云对象存储服务。主要实现七牛云OSS的文件上传与下载。 |
+| 🎉 | OSS Tencent | 腾讯云对象存储服务。主要实现腾讯云OSS的文件上传与下载。|
+| 🎉 | Pay Alipay | 支付宝支付组件。主要实现支付宝的当面付、电脑支付、网站支付等常用支付服务。 |
+| 🎉 | Pay Wechat | 微信支付组件。主要实现微信的JSAPI支付、Native支付等常用支付服务。 |
+| ✅ | [Redis](./study-redis) | key-value型数据库。主要实现使用Redis进行数据缓存。 |
+| ✅ | [Swagger3](./study-swagger3) | 简化API开发的工具。主要实现基于SpringDoc的Swagger3组件。 |
 
 
 > 持续更新中......
