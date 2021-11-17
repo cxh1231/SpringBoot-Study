@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot-study</artifactId>
+        <groupId>com.cxhit</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>study-pay-wechat</artifactId>
+    <version>1.0.0</version>
+    <name>study-pay-wechat</name>
+    <description>study-pay-wechat</description>
+
+    <properties>
+
+    </properties>
+
+    <dependencies>
+        <!-- 微信支付的核心依赖 -->
+        <!-- https://search.maven.org/artifact/com.github.binarywang/weixin-java-pay -->
+        <!-- https://github.com/Wechat-Group/WxJava -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-pay</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+
+        <!-- thymeleaf 模板，用来显示页面  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!-- Hutool工具箱，主要用来生成JSON数据等信息 -->
+        <!-- https://search.maven.org/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.16</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

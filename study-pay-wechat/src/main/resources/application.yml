@@ -1,0 +1,5 @@
+# 项目服务配置
+server:
+  port: 9012  # 端口号
+  servlet:
+    context-path: / #项目访问路径
