@@ -32,6 +32,8 @@
 | ✅ | [Kaptcha](./study-captcha) | 谷歌验证码组件。主要实现生成文本、数学算式等验证码图片。                 |
 | ✅ | [MyBatis Plus](./study-mybatis-plus) | 基于MyBatis的增强工具。主要集成MP并实现旧版代码生成器。 |
 | ✅ | [MyBatis Plus Fast Generator](./study-mybatis-plus-fast-generator) | 基于MyBatis Plus的新版代码生成器，版本>=3.5.1。 |
+| 🎉 | Notice Email | 邮件发送服务组件。主要实现邮件发送功能。 |
+| ✅ | [Notice SMS](./study-notice-sms) | 短信发送服务组件。已实现阿里云短信服务。更多短信服务持续集成中。 |
 | 🎉 | OSS Aliyun | 阿里云对象存储服务。主要实现阿里云OSS的文件上传与下载 |
 | ✅ | [OSS Qiniu](./study-oss-qiniu) | 七牛云对象存储服务。主要实现七牛云OSS的文件上传与下载。 |
 | 🎉 | OSS Tencent | 腾讯云对象存储服务。主要实现腾讯云OSS的文件上传与下载。|
