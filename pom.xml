@@ -36,6 +36,8 @@
         <module>study-pay-wechat</module>
         <module>study-redis</module>
         <module>study-swagger3</module>
+        <module>study-notice-email</module>
+        <module>study-notice-sms</module>
 
         <!-- 如果还有其他，继续增加 -->
         <!-- <module>module-name</module>-->
