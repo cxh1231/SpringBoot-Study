@@ -30,6 +30,7 @@
 | 🚩 | 模块名                      | 集成组件简介                                                       |
 |-----|--------------------------- |-----------------------------------------------------------------|
 | ✅ | [Kaptcha](./study-captcha) | 谷歌验证码组件。主要实现生成文本、数学算式等验证码图片。                 |
+| 🎉 | [Login OAuth](./study-login-oauth) | 各个OAuth登录平台基础。基于JustAuth实现。登录页面可以借鉴。     |
 | ✅ | [MyBatis Plus](./study-mybatis-plus) | 基于MyBatis的增强工具。主要集成MP并实现旧版代码生成器。 |
 | ✅ | [MyBatis Plus Fast Generator](./study-mybatis-plus-fast-generator) | 基于MyBatis Plus的新版代码生成器，版本>=3.5.1。 |
 | 🎉 | Notice Email | 邮件发送服务组件。主要实现邮件发送功能。 |
