@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <!--    <script src="/webjars/stomp-websocket/stomp.min.js"></script>-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+</head>
+<body>
+<label><input id="uid"/></label>
+<button onclick="login()" id="login">登录</button>
+<label><input id="msg" placeholder="信息后加 -id，发给指定人"/></label>
+<button onclick="sendMsg()">发送</button>
+<div id="user"></div>
+<div id="greet"></div>
+<script>
+    let stompClient
+
+    function login() {
+        // 根据输入的 id 号模拟不同用户的订阅
+        let socket = new WebSocket(`ws://localhost:9008/websocket/${document.getElementById('uid').value}`)
+        stompClient = Stomp.over(socket)
+        stompClient.connect({}, function () {
+            // 所有想要接收给指定用户发送的信息的订阅地址都必须加上/user前缀
+            stompClient.subscribe(`/user/chat/contact`, function (frame) {
+                let entity = JSON.parse(frame.body)
+                showGreeting(`收到用户${entity.from}的信息: ${entity.message}`)
+            })
+        })
+
+        document.getElementById('user').innerText = `当前用户为：${document.getElementById('uid').value}`
+
+        function showGreeting(clientMessage) {
+            document.getElementById("greet").innerText += `${clientMessage}\n`
+        }
+    }
+
+    function sendMsg() {
+        const msg = document.getElementById('msg').value
+        stompClient.send("/sendMsg", {}, JSON.stringify({
+            from: document.getElementById('uid').value,
+            to: msg.substring(msg.lastIndexOf('-') + 1),
+            message: msg.substring(0, msg.lastIndexOf('-')),
+            time: new Date()
+        }))
+    }
+</script>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html-->
+<!--        xmlns="http://www.w3.org/1999/xhtml"-->
+<!--        xmlns:th="http://www.thymeleaf.org"-->
+<!--        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>商城灌水集市</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <td>-->
+<!--            <div id="msglist" style="width: 600px; height: 300px; border: 1px solid red; overflow-y: auto"></div>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<table border="1" style="width: 600px;">-->
+<!--    <tr>-->
+<!--        <td>用户名：</td>-->
+<!--        <td><input id="username" th:value="${username}" type="text"/></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<table border="1" style="width: 600px;">-->
+<!--    <tr>-->
+<!--        <td>发送给用户：<input id="to" type="text"/>-->
+<!--        </td>-->
+<!--        <td><input id="content" type="text" placeholder="聊天内容........."/>-->
+<!--            <button id="send" type="button">发送</button>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--&lt;!&ndash;<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>&ndash;&gt;-->
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>-->
+<!--&lt;!&ndash;<script type="text/javascript" th:src="@{/webjars/sockjs-client/sockjs.min.js}"></script>&ndash;&gt;-->
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.1/sockjs.js"></script>-->
+<!--&lt;!&ndash;<script type="text/javascript" th:src="@{/webjars/stomp-websocket/stomp.min.js}"></script>&ndash;&gt;-->
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>-->
+<!--&lt;!&ndash;<script type="text/javascript" th:src="@{/bizjs/chatroom_touser.js}"></script>&ndash;&gt;-->
+<!--<script type="text/javascript">-->
+
+<!--    let stompClient = null;  /* 连接服务器 */-->
+<!--    let socket = new SockJS('http://localhost:9008/chat');-->
+<!--    stompClient = Stomp.over(socket);-->
+<!--    stompClient.connect({}, function (frame) {-->
+<!--        stompClient.subscribe('/user/queue/chat', function (chat) {-->
+<!--            showGreeting(JSON.parse(chat.body));-->
+<!--        });-->
+<!--    });-->
+
+<!--    function sendMsg() {-->
+<!--        let sendData = {-->
+<!--            'content': $("#content").val(),-->
+<!--            'to': $("#to").val(),-->
+<!--            'from': $("#username").val()-->
+<!--        };-->
+<!--        let dataJsonStr = JSON.stringify(sendData);-->
+<!--        stompClient.send("/app/chat", {}, dataJsonStr);-->
+<!--    }-->
+
+<!--    function showGreeting(message) {-->
+<!--        let msgHtml = "<span>" + message.from + ":" + message.content + "</span><br/>";-->
+<!--        $("#msglist").append(msgHtml);-->
+
+<!--        let div = document.getElementById('msglist');-->
+<!--        div.scrollTop = div.scrollHeight;-->
+<!--    }-->
+
+<!--    $(function () {-->
+<!--        $("#disconnect").click(function () {-->
+<!--            disconnect();-->
+<!--        });-->
+<!--        $("#send").click(function () {-->
+<!--            sendMsg();-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->

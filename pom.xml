@@ -39,6 +39,7 @@
         <module>study-notice-email</module>
         <module>study-notice-sms</module>
         <module>study-login-oauth</module>
+        <module>study-websocket</module>
 
         <!-- 如果还有其他，继续增加 -->
         <!-- <module>module-name</module>-->

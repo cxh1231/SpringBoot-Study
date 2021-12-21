@@ -42,6 +42,7 @@
 | 🎉 | Pay Wechat | 微信支付组件。主要实现微信的JSAPI支付、Native支付等常用支付服务。 |
 | ✅ | [Redis](./study-redis) | key-value型数据库。主要实现使用Redis进行数据缓存。 |
 | ✅ | [Swagger3](./study-swagger3) | 简化API开发的工具。主要实现基于SpringDoc的Swagger3组件。 |
+| ✅ | [WebSocket](./study-websocket) | 单个TCP连接上进行全双工通信的协议。 |
 
 
 > 持续更新中......
