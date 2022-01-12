@@ -38,7 +38,7 @@
 | 🎉 | OSS Aliyun | 阿里云对象存储服务。主要实现阿里云OSS的文件上传与下载 |
 | ✅ | [OSS Qiniu](./study-oss-qiniu) | 七牛云对象存储服务。主要实现七牛云OSS的文件上传与下载。 |
 | 🎉 | OSS Tencent | 腾讯云对象存储服务。主要实现腾讯云OSS的文件上传与下载。|
-| 🎉 | Pay Alipay | 支付宝支付组件。主要实现支付宝的当面付、电脑支付、网站支付等常用支付服务。 |
+| ✅ | [Pay Alipay](./study-pay-alipay) | 支付宝支付组件。主要实现支付宝的当面付、电脑支付、网站支付等常用支付服务。 |
 | 🎉 | Pay Wechat | 微信支付组件。主要实现微信的JSAPI支付、Native支付等常用支付服务。 |
 | ✅ | [Redis](./study-redis) | key-value型数据库。主要实现使用Redis进行数据缓存。 |
 | ✅ | [Swagger3](./study-swagger3) | 简化API开发的工具。主要实现基于SpringDoc的Swagger3组件。 |
