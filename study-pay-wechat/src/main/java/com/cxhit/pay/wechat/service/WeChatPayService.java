@@ -13,8 +13,6 @@ import com.github.binarywang.wxpay.service.impl.WxPayServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 微信支付服务类（只实现V3接口）

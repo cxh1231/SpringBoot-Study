@@ -3,8 +3,6 @@ package com.cxhit.pay.wechat.controller;
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.util.IdUtil;
 import com.cxhit.pay.wechat.service.WeChatPayService;
-import com.github.binarywang.wxpay.bean.result.WxPayOrderQueryV3Result;
-import com.github.binarywang.wxpay.bean.result.WxPayRefundV3Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
