@@ -3,9 +3,7 @@ package com.cxhit.pay.wechat.entity;
 import java.io.Serializable;
 
 /**
- * <p>
- * 描述
- * </p>
+ * 微信支付配置信息
  *
  * @author 拾年之璐
  * @since 2022/1/13 17:20

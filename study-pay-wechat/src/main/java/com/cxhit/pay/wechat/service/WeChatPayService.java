@@ -39,11 +39,11 @@ public class WeChatPayService {
         // TODO 此处可以从数据库读取微信支付的相关秘钥、证书等配置信息。但我们这里就直接写入静态数据进行演示
         WeChatPayEntity weChatPayEntity = new WeChatPayEntity();
         // 1. 填充基本信息（商户号与APPID）
-        weChatPayEntity.setMchId("1533360691");
-        weChatPayEntity.setAppId("wx112dd8e2fead84e2");
+        weChatPayEntity.setMchId("15333333333");
+        weChatPayEntity.setAppId("wx123456789101112");
         // 2. 填充秘钥信息
-        weChatPayEntity.setMchKey("wuqukejiwuqukejiwuqukejiwuqukeji");
-        weChatPayEntity.setApiV3Key("wuqukejiwuqukejiwuqukejiwuqukeji");
+        weChatPayEntity.setMchKey("abcdefghabcdefghabcdefghabcdefgh");
+        weChatPayEntity.setApiV3Key("abcdefghabcdefghabcdefghabcdefgh");
         // 3. 填充证书路径信息
         weChatPayEntity.setKeyPath("E:\\微信支付\\Cert\\apiclient_cert.p12");
         weChatPayEntity.setPrivateKeyPath("E:\\微信支付\\Cert\\apiclient_key.pem");
@@ -169,7 +169,7 @@ public class WeChatPayService {
      *
      * @param transactionId 微信订单号
      * @param outTradeNo    商户系统内部的订单号，当没提供微信订单号（transactionId）时需要传
-     * @return 订单成功（SUCCESS）：{0:Y，1:商户单号，2:微信单号，3:订单金额(分)，4:交易时间}
+     * @return 订单成功（SUCCESS）：{0:Y，1:商户单号，2:微信单号，3:订单金额(分)，4:交易时间，5:交易状态，6:交易描述}
      * 订单异常：{0:N，1:订单状态，2:订单描述}
      * 查询错误：{0:E，1:错误代码，2:错误描述}
      */
@@ -192,7 +192,9 @@ public class WeChatPayService {
                         wxPayOrderQueryV3Result.getOutTradeNo(),
                         wxPayOrderQueryV3Result.getTransactionId(),
                         String.valueOf(wxPayOrderQueryV3Result.getAmount().getTotal()),
-                        wxPayOrderQueryV3Result.getSuccessTime()
+                        wxPayOrderQueryV3Result.getSuccessTime(),
+                        wxPayOrderQueryV3Result.getTradeState(),
+                        wxPayOrderQueryV3Result.getTradeStateDesc()
                 };
             } else {
                 return new String[]{

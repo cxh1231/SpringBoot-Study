@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 
 /**
- * <p>
- * 描述
- * </p>
+ * 微信支付控制类
  *
  * @author 拾年之璐
  * @since 2022/1/13 18:04
@@ -129,7 +127,9 @@ public class WeChatPayController {
                     " <br>商户单号：" + query[1] +
                     " <br>微信单号：" + query[2] +
                     " <br>订单金额：" + query[3] + "分" +
-                    " <br>交易时间：" + query[4]
+                    " <br>交易时间：" + query[4] +
+                    " <br>交易状态：" + query[5] +
+                    " <br>交易描述：" + query[6]
             );
         }
         // 查询失败
